@@ -1,14 +1,63 @@
-# actions-ecosystem/action-create-comment
+# Action Create Comment
 
-Create a comment to an issue or a pull request.
+[![actions-workflow-test][actions-workflow-test-badge]][actions-workflow-test]
+[![release][release-badge]][release]
+[![license][license-badge]][license]
 
-Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at [https://github.com/actions-ecosystem/action-create-comment](https://github.com/actions-ecosystem/action-create-comment).
+![screenshot](./docs/assets/screenshot.png)
 
-## Versions
+This is a GitHub Action to create a comment to an issue or a pull request.
 
-| Version | Tag | Upstream commit |
-|---------|-----|-----------------|
-| v1.0.0 | [`v1.0.0`](https://github.com/chainguard-actions/actions-ecosystem-action-create-comment/tree/v1.0.0) | [`5b43c09`](https://github.com/actions-ecosystem/action-create-comment/commit/5b43c092bf96ebc715dbbe5682ecf3b771223855) |
+This action extract the number from an issue or a pull request which has triggered this by default.
+It means you don't need to care about something annoying like whether you should use `${{ github.event.issue.number }}` or `${{ github.event.pull_request.number }}`.
+
+It would be more useful to use this with other GitHub Actions' outputs.
+
+## Inputs
+
+|      NAME      |                          DESCRIPTION                          |   TYPE   | REQUIRED |                                     DEFAULT                                     |
+| -------------- | ------------------------------------------------------------- | -------- | -------- | ------------------------------------------------------------------------------- |
+| `github_token` | A GitHub token.                                               | `string` | `true`   | `N/A`                                                                           |
+| `body`         | The comment body.                                             | `string` | `true`   | `N/A`                                                                           |
+| `repo`         | The owner and repository name. e.g.) `Codertocat/Hello-World` | `string` | `false`  | `${{ github.repository }}`                                                      |
+| `number`       | The number of the issue or pull request.                      | `number` | `false`  | `${{ github.event.issue.number }}` or `${{ github.event.pull_request.number }}` |
+
+## Example
+
+```yaml
+name: Create Comment
+
+on: [issue_comment]
+
+jobs:
+  create_comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-ecosystem/action-create-comment@v1
+        if: ${{ startsWith(github.event.comment.body, '/hello') }}
+        with:
+          github_token: ${{ secrets.github_token }}
+          body: |
+            Hello, @${{ github.actor }}!
+```
+
+## License
+
+Copyright 2020 The Actions Ecosystem Authors.
+
+Action Create Comment is released under the [Apache License 2.0](./LICENSE).
+
+<!-- badge links -->
+
+[actions-workflow-test]: https://github.com/actions-ecosystem/action-create-comment/actions?query=workflow%3ATest
+[actions-workflow-test-badge]: https://img.shields.io/github/workflow/status/actions-ecosystem/action-create-comment/Test?label=Test&style=for-the-badge&logo=github
+
+[release]: https://github.com/actions-ecosystem/action-create-comment/releases
+[release-badge]: https://img.shields.io/github/v/release/actions-ecosystem/action-create-comment?style=for-the-badge&logo=github
+
+[license]: LICENSE
+[license-badge]: <https://img.shields.io/github/license/actions-ecosystem/action-add-labels?style=for-the-badge>
 
 ## Privacy
 
