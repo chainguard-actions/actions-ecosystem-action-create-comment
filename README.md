@@ -6,10 +6,10 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 
 ## Versions
 
-| Version | Tag | Upstream commit |
-|---------|-----|-----------------|
-| v1.0.0 | [`v1.0.0`](https://github.com/chainguard-actions/actions-ecosystem-action-create-comment/tree/v1.0.0) | [`5b43c09`](https://github.com/actions-ecosystem/action-create-comment/commit/5b43c092bf96ebc715dbbe5682ecf3b771223855) |
-| v1.0.2 | [`v1.0.2`](https://github.com/chainguard-actions/actions-ecosystem-action-create-comment/tree/v1.0.2) | [`e23bc59`](https://github.com/actions-ecosystem/action-create-comment/commit/e23bc59fbff7aac7f9044bd66c2dc0fe1286f80b) |
+| Version | Tag | Upstream commit | Hardening report |
+|---------|-----|-----------------|------------------|
+| v1.0.0 | [`v1.0.0`](https://github.com/chainguard-actions/actions-ecosystem-action-create-comment/tree/v1.0.0) | [`5b43c09`](https://github.com/actions-ecosystem/action-create-comment/commit/5b43c092bf96ebc715dbbe5682ecf3b771223855) | [`HARDENING.md`](https://github.com/chainguard-actions/actions-ecosystem-action-create-comment/blob/v1.0.0/HARDENING.md) |
+| v1.0.2 | [`v1.0.2`](https://github.com/chainguard-actions/actions-ecosystem-action-create-comment/tree/v1.0.2) | [`e23bc59`](https://github.com/actions-ecosystem/action-create-comment/commit/e23bc59fbff7aac7f9044bd66c2dc0fe1286f80b) | [`HARDENING.md`](https://github.com/chainguard-actions/actions-ecosystem-action-create-comment/blob/v1.0.2/HARDENING.md) |
 
 ## Privacy
 
